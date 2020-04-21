@@ -38,26 +38,18 @@ from print_results import print_results
 
 # Main program function defined below
 def main():
-    # TODO 0: Measures total program runtime by collecting start time
+
     start_time = time()
 
     in_arg = get_input_args()
 
-    # # Function that checks command line arguments using in_arg  
+    # Function that checks command line arguments using in_arg  
     check_command_line_arguments(in_arg)
 
-    
-    # # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
-    # # Once the get_pet_labels function has been defined replace 'None' 
-    # # in the function call with in_arg.dir  Once you have done the replacements
-    # # your function call should look like this: 
-    # #             get_pet_labels(in_arg.dir)
-    # # This function creates the results dictionary that contains the results, 
-    # # this dictionary is returned from the function call as the variable results
-    # results = get_pet_labels(None)
+    results = get_pet_labels(in_arg.dir)
 
-    # # Function that checks Pet Images in the results Dictionary using results    
-    # check_creating_pet_image_labels(results)
+    # Function that checks Pet Images in the results Dictionary using results    
+    check_creating_pet_image_labels(results)
 
 
     # # TODO 3: Define classify_images function within the file classify_images.py
