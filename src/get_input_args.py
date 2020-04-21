@@ -38,13 +38,13 @@ def get_input_args():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--dir", type=str,
+    parser.add_argument("--dir", type=str, default = 'pet_images/',
                     help="Image Folder")
 
-    parser.add_argument("--arch", type=str,
+    parser.add_argument("--arch", type=str, default = 'vgg',
                     help="CNN Model Architecture")
 
-    parser.add_argument("--dogfile", type=str,
+    parser.add_argument("--dogfile", type=str, default = 'dognames.txt',
                     help="Text File with Dog Names")
 
     return parser.parse_args()
