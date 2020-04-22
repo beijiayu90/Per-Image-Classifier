@@ -44,6 +44,9 @@ def get_pet_labels(image_dir):
 
     for file in files:
 
+      if file in results_dic or file.startswith("."):
+        continue
+
       tmp_arr = file.replace(".", "_").split("_")
 
       modified_arr = [element.lower().strip() for element in tmp_arr]

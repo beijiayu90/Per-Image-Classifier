@@ -69,19 +69,12 @@ def adjust_results4_isadog(results_dic, dogfile):
 
     for key in results_dic:
 
-      pet_label = results_dic[key][0]
+      pet_label = results_dic[key][0].lower()
 
-      model_label = results_dic[key][1]
+      model_label = results_dic[key][1].lower()
 
-      if pet_label in dognames:
-        
-        if model_label in dognames:
-          results_dic[key].extend((1, 1))
-        else:
-          results_dic[key].extend((1, 0))
-      else:
-        
-        if model_label in dognames:
-          results_dic[key].extend((0, 1))
-        else:
-          results_dic[key].extend((0, 0))
+      is_a_dog = 1 if pet_label in dognames else 0
+
+      is_classified_as_dog = 1 if model_label in dognames else 0
+
+      results_dic[key].extend([is_a_dog, is_classified_as_dog])

@@ -62,16 +62,16 @@ def classify_images(images_dir, results_dic, model):
         
     """
 
-    for filename in results_dic:
+    for file_name in results_dic:
 
-      file_path = f'{images_dir}{filename}'
+      file_path = f'{images_dir}{file_name}'
       
-      model_label = classifier(file_path, model).lower()
+      model_label = classifier(file_path, model)
 
-      results_dic[filename].append(model_label)
+      results_dic[file_name].extend([model_label])
 
-      truth = 1 if results_dic[filename][0] in model_label else 0
+      truth = 1 if results_dic[file_name][0] in model_label.lower() else 0
 
-      results_dic[filename].append(truth)
+      results_dic[file_name].extend([truth])
 
      
