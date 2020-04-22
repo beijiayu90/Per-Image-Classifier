@@ -44,7 +44,7 @@ def main():
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg  
-    # check_command_line_arguments(in_arg)
+    check_command_line_arguments(in_arg)
 
     images_dir = in_arg.dir
     model = in_arg.arch
@@ -62,19 +62,12 @@ def main():
     adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
-    check_classifying_labels_as_dogs(results)
+    # check_classifying_labels_as_dogs(results)
 
+    results_stats = calculates_results_stats(results)
 
-    # # TODO 5: Define calculates_results_stats function within the file calculates_results_stats.py
-    # # This function creates the results statistics dictionary that contains a
-    # # summary of the results statistics (this includes counts & percentages). This
-    # # dictionary is returned from the function call as the variable results_stats    
-    # # Calculates results of run and puts statistics in the Results Statistics
-    # # Dictionary - called results_stats
-    # results_stats = calculates_results_stats(results)
-
-    # # Function that checks Results Statistics Dictionary using results_stats
-    # check_calculating_results(results, results_stats)
+    # Function that checks Results Statistics Dictionary using results_stats
+    check_calculating_results(results, results_stats)
 
 
     # # TODO 6: Define print_results function within the file print_results.py
