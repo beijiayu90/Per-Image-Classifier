@@ -70,7 +70,7 @@ def classify_images(images_dir, results_dic, model):
 
       results_dic[file_name].extend([model_label])
 
-      truth = 1 if results_dic[file_name][0] in model_label.lower() else 0
+      truth = 1 if results_dic[file_name][0] in model_label.lower().strip() else 0
 
       results_dic[file_name].extend([truth])
 
