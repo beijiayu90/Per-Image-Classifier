@@ -44,7 +44,7 @@ def main():
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg  
-    check_command_line_arguments(in_arg)
+    # check_command_line_arguments(in_arg)
 
     images_dir = in_arg.dir
     model = in_arg.arch
@@ -52,22 +52,22 @@ def main():
     results = get_pet_labels(images_dir)
 
     # Function that checks Pet Images in the results Dictionary using results    
-    check_creating_pet_image_labels(results)
+    # check_creating_pet_image_labels(results)
 
     classify_images(images_dir, results, model)
 
     # Function that checks Results Dictionary using results    
-    check_classifying_images(results)    
+    # check_classifying_images(results)    
 
     adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
-    check_classifying_labels_as_dogs(results)
+    # check_classifying_labels_as_dogs(results)
 
     results_stats = calculates_results_stats(results)
 
     # Function that checks Results Statistics Dictionary using results_stats
-    check_calculating_results(results, results_stats)
+    # check_calculating_results(results, results_stats)
 
     print_results(results, results_stats, model, True, True)
 

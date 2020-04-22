@@ -86,7 +86,8 @@ def print_results(results_dic, results_stats_dic, model,
         for key in results_dic:
 
            if results_dic[key][3] != results_dic[key][4]:
-                print(f'Pet Label: {results_dic[key][0]}, Classifier Label: {results_dic[key][1]}')
+                print("Real: {:>26}   Classifier: {:>30}".format(results_dic[key][0],
+                                                          results_dic[key][1]))
 
     if (print_incorrect_breed and 
         (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']) 

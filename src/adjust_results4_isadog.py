@@ -30,6 +30,9 @@
 #           at indices 3 & 4 to 1 when the label is of-a-dog and to 0 when the 
 #           label isn't a dog.
 #
+
+import re
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly 
@@ -61,11 +64,20 @@ def adjust_results4_isadog(results_dic, dogfile):
            None - results_dic is mutable data type so no return needed.
     """
 
-    file_handler = open(dogfile, "r")
+    dognames_dic = {}
 
-    dognames = file_handler.read()
+    with open(dogfile, 'r') as infile:
 
-    file_handler.close()
+      line = infile.readline()
+
+      while line != "":
+
+        updated_line = line.strip()
+
+        if updated_line not in dognames_dic:
+          dognames_dic[updated_line] = 1
+
+        line = infile.readline()
 
     for key in results_dic:
 
@@ -73,8 +85,8 @@ def adjust_results4_isadog(results_dic, dogfile):
 
       model_label = results_dic[key][1].lower()
 
-      is_a_dog = 1 if pet_label in dognames else 0
+      is_a_dog = 1 if pet_label in dognames_dic else 0
 
-      is_classified_as_dog = 1 if model_label in dognames else 0
+      is_classified_as_dog = 1 if model_label in dognames_dic else 0
 
       results_dic[key].extend([is_a_dog, is_classified_as_dog])
